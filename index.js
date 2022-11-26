@@ -1,149 +1,271 @@
-// HOMEWORK 2 --------------------------------------
+// HOMEWORK 3 --------------------------------------
 
 // Task 1
+let numberArray = [2, 3, 4, 5];
 
-let x = 1;
-let y = 2;
-let res1 = String(x) + String(y);
-console.log(res1); // "12"
-console.log(typeof res1); // "string"
+let resFor = 0;
+for (let index = 0; index < numberArray.length; index++) {
+    resFor += numberArray[index];
+}
+console.log(resFor);
 
-let res2 = Boolean(x) + String(y);
-console.log(res2); // "true2"
-console.log(typeof res2); // "string"
+let resWhile = 0;
+let indexForWhile = 0;
+while (indexForWhile < numberArray.length) {
+    resWhile += numberArray[indexForWhile]
+    indexForWhile++;
+}
+console.log(resWhile);
 
-
-let res3 = Boolean(x + y);
-console.log(res3); // true
-console.log(typeof res3); // "boolean"
-
-let res4 = Number(x * Array(y));
-console.log(res4); // NaN
-console.log(typeof res4); // "number"
 
 // Task 2
+for (let index = 0; index < 16; index++) {
+    if (index % 2 === 0) {
+        console.log(index + " is even");
+    }
 
-let evenNumber = +prompt("Write a number and we will check on even number");
-if (evenNumber % 2 === 0) {
-    console.log("Number " + evenNumber + " is a even");
-} else {
-    console.log("Number " + evenNumber + " isn't a even");
+    if (index % 2 !== 0) {
+        console.log(index + " is odd");
+    }
 }
 
-let multipleNumber = +prompt("Write a number and we will check on multiple to 7");
-if (multipleNumber % 7 === 0) {
-    console.log("Number " + multipleNumber + " is multiple to 7");
-} else {
-    console.log("Number " + multipleNumber + " isn't multiple to 7");
+// Task 3
+let randArray = (numberOfElements) => {
+    let arrayOfElements = [];
+    for (let index = 0; index < numberOfElements; index++) {
+        arrayOfElements.push(Math.floor(Math.random() * 501));
+    }
+    console.log(arrayOfElements);
 }
-
-// Tesk 3
-
-let firstArray = [];
-firstArray.push(4);
-firstArray.push("String");
-firstArray.push(true);
-firstArray.push(null);
-console.log(firstArray.length);
-let visitorValue = prompt("Write a value which you want to add to array");
-firstArray.push(visitorValue);
-console.log(firstArray[firstArray.length - 1]);
-firstArray.shift();
-console.log(firstArray);
-
+randArray(5);
 
 // Task 4
+let firstNumber = +prompt("Write a number and we will count power. We count only integers numbers. The first number:");
+let secondNumber = +prompt("The second number:");
 
-let cities = ["Rome", "Lviv", "Warsaw"]; 
-let newCities = cities.join("*");
-console.log(newCities);
+let raiseToDegree = (a, b) => {
+    let resultPow;
+    if (isNaN(a) || isNaN(b)) {
+        alert('It is not a number values');
+    } else {
+        resultPow = Math.pow(parseInt(a), parseInt(b))
+    }
+    console.log(resultPow);
+}
+
+raiseToDegree(firstNumber, secondNumber);
 
 // Task 5
-
-let isAdult = +prompt("How old are you?");
-if (isAdult >= 18) {
-    console.log("You have reached the age of majority");
-} else {
-    console.log("You are so young");
+function findMin() {
+    let minValue = arguments[0];
+    for (let index = 0; index < arguments.length; index++) {
+        if (arguments[index] < minValue) {
+            minValue = arguments[index];
+        }
+    }
+    console.log(minValue);
 }
+
+findMin(12, 14, 4, -4, 0.2);
+
 
 // Task 6
 
-let firstSide = +prompt("Please write triangle sides. The first side is:");
-let secondSide = +prompt("The second side is:");
-let thirdSide = +prompt("The third side is:");
-
-let p = (firstSide + secondSide + thirdSide) / 2;
-let areaTriangle = (p * (p - firstSide) * (p - secondSide) * (p - thirdSide)) ** (1/2);
-areaTriangle = areaTriangle.toFixed(3);
-console.log("Area Triagle is: " + areaTriangle);
-
-if ( 
-    Math.pow(firstSide, 2) + Math.pow(secondSide, 2) == Math.pow(thirdSide, 2).toFixed(3) 
-    || Math.pow(secondSide, 2) + Math.pow(thirdSide, 2) == Math.pow(firstSide, 2).toFixed(3) 
-    || Math.pow(thirdSide, 2) + Math.pow(firstSide, 2) == Math.pow(secondSide, 2).toFixed(3) ) {
-        console.log("True");
-} else {
-    console.log("This triagle isn't a rectangle");
+let findUnique = (arr) => {
+    let compareArr = [];
+    for (let index = 0; index < arr.length; index++) {
+        if(compareArr.includes(arr[index])) {
+            console.log(false);
+            return;
+        }
+        compareArr.push(arr[index]);
+    }
+    console.log(true);
 }
+
+findUnique([1, 2, 3, 5, 3]);
+findUnique([1, 2, 3, 5, 11]);
+
 
 // Task 7
 
-let timeNow = new Date().getHours();
-
-if (timeNow >= 23 && timeNow <=5) {
-    console.log("Good night");
-} else if (timeNow > 5 && timeNow <=11) {
-    console.log("Good morning");
-} else if (timeNow > 11 && timeNow <=17) {
-    console.log("Good day");
-} else if (timeNow > 17 && timeNow < 23) {
-    console.log("Good evening");
+let lastElem = (a, b) => {
+    let newArr = [];
+    if ( !b ) {
+        b = 1;
+    } 
+    newArr = a.slice(-b);
+    return newArr;
 }
 
-switch (timeNow) {
-    case 23:
-    case 00:
-    case 01:
-    case 02:
-    case 03:
-    case 04:
-    case 05:
-        console.log("Good night");
-        break;
-    case 06:
-    case 07:
-    case 08:
-    case 09:
-    case 10:
-    case 11:
-        console.log("Good morning");
-        break;
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 15:
-    case 16:
-    case 17:
-        console.log("Good day");
-        break;
-    case 18:
-    case 19:
-    case 20:
-    case 21:
-    case 22:
-        console.log("Good evening");
-        break;
+console.log(lastElem([3, 4, 10, -5]));      // -5
+console.log(lastElem([3, 4, 10, -5],2));   // [10, -5]
+console.log(lastElem([3, 4, 10, -5],8));   // [3, 4, 10, -5]
 
-    default:
-        console.log("The value is wrong");
-        break;
+// Task 8
+
+let convertToCapitalize = (string) => {
+    let dividedStringArray = string.split(" ");
+    let newString = [];
+    for (let index = 0; index < dividedStringArray.length; index++) {
+        newString.push(dividedStringArray[index].charAt(0).toUpperCase() + dividedStringArray[index].slice(1));   
+    }
+    newString = newString.join(" ");
+    console.log(newString);
 }
 
+convertToCapitalize('i love java script');
 
 
+
+
+
+
+
+
+// HOMEWORK 2 --------------------------------------
+
+// // Task 1
+
+// let x = 1;
+// let y = 2;
+// let res1 = String(x) + String(y);
+// console.log(res1); // "12"
+// console.log(typeof res1); // "string"
+
+// let res2 = Boolean(x) + String(y);
+// console.log(res2); // "true2"
+// console.log(typeof res2); // "string"
+
+
+// let res3 = Boolean(x + y);
+// console.log(res3); // true
+// console.log(typeof res3); // "boolean"
+
+// let res4 = Number(x * Array(y));
+// console.log(res4); // NaN
+// console.log(typeof res4); // "number"
+
+// // Task 2
+
+// let evenNumber = +prompt("Write a number and we will check on even number");
+// if (evenNumber % 2 === 0) {
+//     console.log("Number " + evenNumber + " is a even");
+// } else {
+//     console.log("Number " + evenNumber + " isn't a even");
+// }
+
+// let multipleNumber = +prompt("Write a number and we will check on multiple to 7");
+// if (multipleNumber % 7 === 0) {
+//     console.log("Number " + multipleNumber + " is multiple to 7");
+// } else {
+//     console.log("Number " + multipleNumber + " isn't multiple to 7");
+// }
+
+// // Tesk 3
+
+// let firstArray = [];
+// firstArray.push(4);
+// firstArray.push("String");
+// firstArray.push(true);
+// firstArray.push(null);
+// console.log(firstArray.length);
+// let visitorValue = prompt("Write a value which you want to add to array");
+// firstArray.push(visitorValue);
+// console.log(firstArray[firstArray.length - 1]);
+// firstArray.shift();
+// console.log(firstArray);
+
+
+// // Task 4
+
+// let cities = ["Rome", "Lviv", "Warsaw"]; 
+// let newCities = cities.join("*");
+// console.log(newCities);
+
+// // Task 5
+
+// let isAdult = +prompt("How old are you?");
+// if (isAdult >= 18) {
+//     console.log("You have reached the age of majority");
+// } else {
+//     console.log("You are so young");
+// }
+
+// // Task 6
+
+// let firstSide = +prompt("Please write triangle sides. The first side is:");
+// let secondSide = +prompt("The second side is:");
+// let thirdSide = +prompt("The third side is:");
+
+// let p = (firstSide + secondSide + thirdSide) / 2;
+// let areaTriangle = (p * (p - firstSide) * (p - secondSide) * (p - thirdSide)) ** (1/2);
+// areaTriangle = areaTriangle.toFixed(3);
+// console.log("Area Triagle is: " + areaTriangle);
+
+// if ( 
+//     Math.pow(firstSide, 2) + Math.pow(secondSide, 2) == Math.pow(thirdSide, 2).toFixed(3) 
+//     || Math.pow(secondSide, 2) + Math.pow(thirdSide, 2) == Math.pow(firstSide, 2).toFixed(3) 
+//     || Math.pow(thirdSide, 2) + Math.pow(firstSide, 2) == Math.pow(secondSide, 2).toFixed(3) ) {
+//         console.log("True");
+// } else {
+//     console.log("This triagle isn't a rectangle");
+// }
+
+// // Task 7
+
+// let timeNow = new Date().getHours();
+
+// if (timeNow >= 23 && timeNow <=5) {
+//     console.log("Good night");
+// } else if (timeNow > 5 && timeNow <=11) {
+//     console.log("Good morning");
+// } else if (timeNow > 11 && timeNow <=17) {
+//     console.log("Good day");
+// } else if (timeNow > 17 && timeNow < 23) {
+//     console.log("Good evening");
+// }
+
+// switch (timeNow) {
+//     case 23:
+//     case 00:
+//     case 01:
+//     case 02:
+//     case 03:
+//     case 04:
+//     case 05:
+//         console.log("Good night");
+//         break;
+//     case 06:
+//     case 07:
+//     case 08:
+//     case 09:
+//     case 10:
+//     case 11:
+//         console.log("Good morning");
+//         break;
+//     case 10:
+//     case 11:
+//     case 12:
+//     case 13:
+//     case 14:
+//     case 15:
+//     case 16:
+//     case 17:
+//         console.log("Good day");
+//         break;
+//     case 18:
+//     case 19:
+//     case 20:
+//     case 21:
+//     case 22:
+//         console.log("Good evening");
+//         break;
+
+//     default:
+//         console.log("The value is wrong");
+//         break;
+// }
 
 
 
