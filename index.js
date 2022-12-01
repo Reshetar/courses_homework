@@ -1,120 +1,220 @@
-// HOMEWORK 3 --------------------------------------
+// HOMEWORK 4 --------------------------------------
 
 // Task 1
-let numberArray = [2, 3, 4, 5];
 
-let resFor = 0;
-for (let index = 0; index < numberArray.length; index++) {
-    resFor += numberArray[index];
+let calcReactangleArea = (width, height) => {
+    if (isNaN(width) && isNaN(height)) {
+        throw new Error("Wrong values");
+    }
+    return width * height;
 }
-console.log(resFor);
 
-let resWhile = 0;
-let indexForWhile = 0;
-while (indexForWhile < numberArray.length) {
-    resWhile += numberArray[indexForWhile]
-    indexForWhile++;
+try {
+    console.log(calcReactangleArea(4,4));
+    console.log(calcReactangleArea(4,"text"));
+} catch (error) {
+    console.log(error.message);
 }
-console.log(resWhile);
 
 
 // Task 2
-for (let index = 0; index < 16; index++) {
-    if (index % 2 === 0) {
-        console.log(index + " is even");
-    }
 
-    if (index % 2 !== 0) {
-        console.log(index + " is odd");
-    }
+let checkAge = (title = "How old are you?") => {
+    let age = +prompt(title);
+    if (age === 0) {
+        throw new Error("The field is empty! Please enter your age");
+    } else if (isNaN(age)) {
+        throw new Error("The value is not a number");
+    } else if (age <= 14) {
+        throw new Error("You are so young for this movies :)");
+    } 
+    return "The movie name";
+}
+
+try {
+    console.log(checkAge());
+} catch (error) {
+    console.log(error.message);
 }
 
 // Task 3
-let randArray = (numberOfElements) => {
-    let arrayOfElements = [];
-    for (let index = 0; index < numberOfElements; index++) {
-        arrayOfElements.push(Math.floor(Math.random() * 501));
+
+class MonthException {
+  constructor(message) {
+    this.message = message;
+  }
+
+  showMonthName() {
+    if (this.message >= 14 || isNaN(this.message) ) {
+      throw new Error("MonthException Incorrect month number")
     }
-    console.log(arrayOfElements);
+    let date = new Date();
+    date.setMonth(this.message - 1);
+    return date.toLocaleString('en-US', { month: 'long' });
+  }
 }
-randArray(5);
+  
+try {
+  const julyMonth = new MonthException("7");
+  console.log(julyMonth.showMonthName());
+  
+  const wrongMonth = new MonthException("16");
+  console.log(wrongMonth.showMonthName());
 
-// Task 4
-let firstNumber = +prompt("Write a number and we will count power. We count only integers numbers. The first number:");
-let secondNumber = +prompt("The second number:");
-
-let raiseToDegree = (a, b) => {
-    let resultPow;
-    if (isNaN(a) || isNaN(b)) {
-        alert('It is not a number values');
-    } else {
-        resultPow = Math.pow(parseInt(a), parseInt(b))
-    }
-    console.log(resultPow);
-}
-
-raiseToDegree(firstNumber, secondNumber);
-
-// Task 5
-function findMin() {
-    let minValue = arguments[0];
-    for (let index = 0; index < arguments.length; index++) {
-        if (arguments[index] < minValue) {
-            minValue = arguments[index];
-        }
-    }
-    console.log(minValue);
+  // const wrongNameMonth = new MonthException("text");
+  // console.log(wrongNameMonth.showMonthName());
+} catch (error) {
+  console.log(error.message);
 }
 
-findMin(12, 14, 4, -4, 0.2);
+  
+// Task 4  
 
-
-// Task 6
-
-let findUnique = (arr) => {
-    let compareArr = [];
-    for (let index = 0; index < arr.length; index++) {
-        if(compareArr.includes(arr[index])) {
-            console.log(false);
-            return;
-        }
-        compareArr.push(arr[index]);
-    }
-    console.log(true);
+let showUser = (id) => {
+  if (isNaN(id) || id < 0) {
+    throw new Error(`Error: ID must not be negative: ${id}`);
+  }
+  return {id};
 }
 
-findUnique([1, 2, 3, 5, 3]);
-findUnique([1, 2, 3, 5, 11]);
-
-
-// Task 7
-
-let lastElem = (a, b) => {
-    let newArr = [];
-    if ( !b ) {
-        b = 1;
-    } 
-    newArr = a.slice(-b);
-    return newArr;
+let showUsers = (ids) => {
+  let newArray = [];
+  ids.map((id) => { 
+    showUser(id);
+    newArray.push({id});
+  })
+  return newArray;
 }
 
-console.log(lastElem([3, 4, 10, -5]));      // -5
-console.log(lastElem([3, 4, 10, -5],2));   // [10, -5]
-console.log(lastElem([3, 4, 10, -5],8));   // [3, 4, 10, -5]
+try {
+  console.log(showUsers([7, 12, 44, 22]));
+  console.log(showUsers([7, -12, 44, 22]));
+} catch (error) {
+  console.log(error.message);
+} 
 
-// Task 8
 
-let convertToCapitalize = (string) => {
-    let dividedStringArray = string.split(" ");
-    let newString = [];
-    for (let index = 0; index < dividedStringArray.length; index++) {
-        newString.push(dividedStringArray[index].charAt(0).toUpperCase() + dividedStringArray[index].slice(1));   
-    }
-    newString = newString.join(" ");
-    console.log(newString);
-}
 
-convertToCapitalize('i love java script');
+
+
+
+// // HOMEWORK 3 --------------------------------------
+
+// // Task 1
+// let numberArray = [2, 3, 4, 5];
+
+// let resFor = 0;
+// for (let index = 0; index < numberArray.length; index++) {
+//     resFor += numberArray[index];
+// }
+// console.log(resFor);
+
+// let resWhile = 0;
+// let indexForWhile = 0;
+// while (indexForWhile < numberArray.length) {
+//     resWhile += numberArray[indexForWhile]
+//     indexForWhile++;
+// }
+// console.log(resWhile);
+
+
+// // Task 2
+// for (let index = 0; index < 16; index++) {
+//     if (index % 2 === 0) {
+//         console.log(index + " is even");
+//     }
+
+//     if (index % 2 !== 0) {
+//         console.log(index + " is odd");
+//     }
+// }
+
+// // Task 3
+// let randArray = (numberOfElements) => {
+//     let arrayOfElements = [];
+//     for (let index = 0; index < numberOfElements; index++) {
+//         arrayOfElements.push(Math.floor(Math.random() * 501));
+//     }
+//     console.log(arrayOfElements);
+// }
+// randArray(5);
+
+// // Task 4
+// let firstNumber = +prompt("Write a number and we will count power. We count only integers numbers. The first number:");
+// let secondNumber = +prompt("The second number:");
+
+// let raiseToDegree = (a, b) => {
+//     let resultPow;
+//     if (isNaN(a) || isNaN(b)) {
+//         alert('It is not a number values');
+//     } else {
+//         resultPow = Math.pow(parseInt(a), parseInt(b))
+//     }
+//     console.log(resultPow);
+// }
+
+// raiseToDegree(firstNumber, secondNumber);
+
+// // Task 5
+// function findMin() {
+//     let minValue = arguments[0];
+//     for (let index = 0; index < arguments.length; index++) {
+//         if (arguments[index] < minValue) {
+//             minValue = arguments[index];
+//         }
+//     }
+//     console.log(minValue);
+// }
+
+// findMin(12, 14, 4, -4, 0.2);
+
+
+// // Task 6
+
+// let findUnique = (arr) => {
+//     let compareArr = [];
+//     for (let index = 0; index < arr.length; index++) {
+//         if(compareArr.includes(arr[index])) {
+//             console.log(false);
+//             return;
+//         }
+//         compareArr.push(arr[index]);
+//     }
+//     console.log(true);
+// }
+
+// findUnique([1, 2, 3, 5, 3]);
+// findUnique([1, 2, 3, 5, 11]);
+
+
+// // Task 7
+
+// let lastElem = (a, b) => {
+//     let newArr = [];
+//     if ( !b ) {
+//         b = 1;
+//     } 
+//     newArr = a.slice(-b);
+//     return newArr;
+// }
+
+// console.log(lastElem([3, 4, 10, -5]));      // -5
+// console.log(lastElem([3, 4, 10, -5],2));   // [10, -5]
+// console.log(lastElem([3, 4, 10, -5],8));   // [3, 4, 10, -5]
+
+// // Task 8
+
+// let convertToCapitalize = (string) => {
+//     let dividedStringArray = string.split(" ");
+//     let newString = [];
+//     for (let index = 0; index < dividedStringArray.length; index++) {
+//         newString.push(dividedStringArray[index].charAt(0).toUpperCase() + dividedStringArray[index].slice(1));   
+//     }
+//     newString = newString.join(" ");
+//     console.log(newString);
+// }
+
+// convertToCapitalize('i love java script');
 
 
 
