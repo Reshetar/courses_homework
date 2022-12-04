@@ -1,97 +1,97 @@
 // HOMEWORK 4 --------------------------------------
 
-// Task 1
+// // Task 1
 
-let calcReactangleArea = (width, height) => {
-    if (isNaN(width) && isNaN(height)) {
-        throw new Error("Wrong values");
-    }
-    return width * height;
-}
+// let calcReactangleArea = (width, height) => {
+//     if (isNaN(width) && isNaN(height)) {
+//         throw new Error("Wrong values");
+//     }
+//     return width * height;
+// }
 
-try {
-    console.log(calcReactangleArea(4,4));
-    console.log(calcReactangleArea(4,"text"));
-} catch (error) {
-    console.log(error.message);
-}
+// try {
+//     console.log(calcReactangleArea(4,4));
+//     console.log(calcReactangleArea(4,"text"));
+// } catch (error) {
+//     console.log(error.message);
+// }
 
 
-// Task 2
+// // Task 2
 
-let checkAge = (title = "How old are you?") => {
-    let age = +prompt(title);
-    if (age === 0) {
-        throw new Error("The field is empty! Please enter your age");
-    } else if (isNaN(age)) {
-        throw new Error("The value is not a number");
-    } else if (age <= 14) {
-        throw new Error("You are so young for this movies :)");
-    } 
-    return "The movie name";
-}
+// let checkAge = (title = "How old are you?") => {
+//     let age = +prompt(title);
+//     if (age === 0) {
+//         throw new Error("The field is empty! Please enter your age");
+//     } else if (isNaN(age)) {
+//         throw new Error("The value is not a number");
+//     } else if (age <= 14) {
+//         throw new Error("You are so young for this movies :)");
+//     } 
+//     return "The movie name";
+// }
 
-try {
-    console.log(checkAge());
-} catch (error) {
-    console.log(error.message);
-}
+// try {
+//     console.log(checkAge());
+// } catch (error) {
+//     console.log(error.message);
+// }
 
-// Task 3
+// // Task 3
 
-class MonthException {
-  constructor(message) {
-    this.message = message;
-  }
+// class MonthException {
+//   constructor(message) {
+//     this.message = message;
+//   }
 
-  showMonthName() {
-    if (this.message >= 14 || isNaN(this.message) ) {
-      throw new Error("MonthException Incorrect month number")
-    }
-    let date = new Date();
-    date.setMonth(this.message - 1);
-    return date.toLocaleString('en-US', { month: 'long' });
-  }
-}
+//   showMonthName() {
+//     if (this.message >= 14 || isNaN(this.message) ) {
+//       throw new Error("MonthException Incorrect month number")
+//     }
+//     let date = new Date();
+//     date.setMonth(this.message - 1);
+//     return date.toLocaleString('en-US', { month: 'long' });
+//   }
+// }
   
-try {
-  const julyMonth = new MonthException("7");
-  console.log(julyMonth.showMonthName());
+// try {
+//   const julyMonth = new MonthException("7");
+//   console.log(julyMonth.showMonthName());
   
-  const wrongMonth = new MonthException("16");
-  console.log(wrongMonth.showMonthName());
+//   const wrongMonth = new MonthException("16");
+//   console.log(wrongMonth.showMonthName());
 
-  // const wrongNameMonth = new MonthException("text");
-  // console.log(wrongNameMonth.showMonthName());
-} catch (error) {
-  console.log(error.message);
-}
+//   // const wrongNameMonth = new MonthException("text");
+//   // console.log(wrongNameMonth.showMonthName());
+// } catch (error) {
+//   console.log(error.message);
+// }
 
   
-// Task 4  
+// // Task 4  
 
-let showUser = (id) => {
-  if (isNaN(id) || id < 0) {
-    throw new Error(`Error: ID must not be negative: ${id}`);
-  }
-  return {id};
-}
+// let showUser = (id) => {
+//   if (isNaN(id) || id < 0) {
+//     throw new Error(`Error: ID must not be negative: ${id}`);
+//   }
+//   return {id};
+// }
 
-let showUsers = (ids) => {
-  let newArray = [];
-  ids.map((id) => { 
-    showUser(id);
-    newArray.push({id});
-  })
-  return newArray;
-}
+// let showUsers = (ids) => {
+//   let newArray = [];
+//   ids.map((id) => { 
+//     showUser(id);
+//     newArray.push({id});
+//   })
+//   return newArray;
+// }
 
-try {
-  console.log(showUsers([7, 12, 44, 22]));
-  console.log(showUsers([7, -12, 44, 22]));
-} catch (error) {
-  console.log(error.message);
-} 
+// try {
+//   console.log(showUsers([7, 12, 44, 22]));
+//   console.log(showUsers([7, -12, 44, 22]));
+// } catch (error) {
+//   console.log(error.message);
+// } 
 
 
 
