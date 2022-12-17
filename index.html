@@ -7,8 +7,72 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>Task 2</h3>
+    <p id ='text'>I learning JavaScript events!</p> 
+    <div>
+        <button onclick="changeCSS()" >Change style!</button>
+    </div>
+    
+    <hr />
+    <h3>Task 3</h3>
 
-    <div id="test">First</div>
+    <div>
+        <button onclick="changeBgOnBlue()">Click to make the page blue</button>
+        <button id="pink">Double-click to make the page pink</button>
+        <button onmouseup="changeBgOnBrownUp()" onmousedown="changeBgOnBrownDown()">Click and hold to make the page brown</button>
+        <a href="#" onmouseover="changeBgOnYellowOn()" onmouseout="changeBgOnYellowOff()">Hover over to make the page yellow</a>
+    </div>
+    
+    <hr />
+    <h3>Task 4</h3>
+
+    <select id="names">
+        <option value="peter">Peter</option>
+        <option value="john">John</option>
+        <option value="alise">Alise</option>
+        <option value="alex">Alex</option>
+        <option value="iren">Iren</option>
+    </select>
+    <button onclick="chooseAndDelete()">Choose and delete</button>
+
+    <hr />
+    <h3>Task 5</h3>
+
+    <button onclick="onClickLive()" onmouseover="onMoveLive()" onmouseout="onOutLive()">Live button</button>
+    <div id="messages">
+    </div>
+
+    <hr />
+    <h3>Task 6</h3>
+
+    <div>
+        <p>Width: <span id="width">100px</span>, Height: <span id="height">150px</span></p>
+    </div>
+
+    <hr />
+    <h3>Task 7</h3>
+    
+    <select name="country" id="country" onchange="onChangeCounry()">
+        <option value="ger">Germany</option>
+        <option value="usa">USA</option>
+        <option value="ukr">Ukraine</option>
+    </select>
+                        
+    <select name="cities" id="cities" onchange="onChangeCity()"></select>
+    <p id="valuesOfSelects">
+        <span id="country-text"></span>, 
+        <span id="city-text"></span>
+    </p>
+    
+    
+    <script src="./homework7.js"></script>
+
+
+
+
+    <!-- OLD -->
+
+    <!-- <div id="test">First</div>
 
     <img id="dog" src="image" alt="picture">
 
@@ -43,14 +107,11 @@
     <span>Make me invisible, please!</span>
 
     <input type="text" id="input1" value="Text1">
-    <input type="text" id="input2" value="Text2">
+    <input type="text" id="input2" value="Text2"> -->
 
     
-
-
-
-
-    <script src="./homework6.js"></script>
+    
+    <!-- <script src="./homework6.js"></script> -->
     <!-- <script src="./index.js"></script> -->
     <!-- <script src="./homework5.js"></script> -->
     
