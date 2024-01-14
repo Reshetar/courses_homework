@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/normalize.css">
+</head>
+<body>
+  <div class="top_bar">
+    <a href="#" class="btn btn_back"><img src="./img/left-arrow.svg" />Back</a>
+    <a href="#" class="btn btn_like_head"><img src="./img/heart.svg" /><span></span></a>
+    <a href="#" class="btn btn_collection"><img src="./img/doc.svg" /></a>
+  </div>
+  <div class="main_content">
+    <form id="filter_form" class="filter_form">
+      <input type="text" id="artist" placeholder="Artist" class="artist" />
+      <select name="genre" id="genre" class="genre" >
+        <option value="">Genre</option>
+        <option value="hip-hop">Hip Hop</option>
+        <option value="rock">Rock</option>
+        <option value="electronic">Electronic</option>
+      </select>
+  
+      <select name="decade" id="decade"  class="decade">
+        <option value="">Decade</option>
+        <option value="2000-2010">2000-10 рр.</option>
+        <option value="2010-2020">2010-20 pp.</option>
+        <option value="2020-2024">2020-24 pp.</option>
+      </select>
+  
+      <select name="country" id="country" class="country">
+        <option value="">Country</option>
+        <option value="usa">USA</option>
+        <option value="uk">UK</option>
+        <option value="germany">Germany</option>
+      </select>
+      
+      <input type="submit" value="Search" class="btn_submit" />
+    </form>
+    
+    <div id="list" class="list"></div>
+
+    <div id="liked_list" class="list hidden"></div>
+  
+    <div id="pagination" class="pagination"></div>
+  </div>
+  
+
+  <script src="/main.js"></script>
+  <script src="/pagination.js"></script>
+</body>
+</html>
